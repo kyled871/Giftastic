@@ -1,0 +1,21 @@
+body {
+    background-image: url(../images/vintage-wallpaper.png);
+}
+
+@font-face {
+    font-family: 'groovyFont';
+    src: url(../Malvie.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h4 {
+    color: antiquewhite;
+    font-family: 'groovyFont';
+    text-align: center;
+}
+
+.form-control, .btn {
+    font-family: 'groovyFont';
+    color: black;
+}
