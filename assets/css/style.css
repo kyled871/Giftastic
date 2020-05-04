@@ -19,3 +19,7 @@ h1, h4 {
     font-family: 'groovyFont';
     color: black;
 }
+
+#guitarPic {
+    width: 380px;
+}
