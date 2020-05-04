@@ -7,19 +7,21 @@ $(document).ready(function() {
 
     console.log(searchResults)
 
+    // displays example search results with array
     $.each(searchResults, function(index, value) {
-        $('#gifButtons').append('<button>' + value + '</button>')
+        $('#gifButtons').append('<button class="btn btn-light">' + value + '</button>')
     })
 
 
     $('#submitButton').on('click', function() {
 
         // takes value in search box and push it to existing array and appends that value as a new button.
-        let q = $('#searchBox').val();
+        let q = $('#searchBox').val().trim();
         searchResults.push(q)
-        $('#gifButtons').append('<button>' + q + '</button>')
+        $('#gifButtons').append('<button class="btn btn-light">' + q + '</button>')
 
 
+        
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + q + apiKey + "&limit=10";
         
         $.ajax({
