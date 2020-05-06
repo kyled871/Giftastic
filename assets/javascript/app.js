@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     // displays example search results with array
     $.each(searchResults, function(index, value) {
-        $('#gifButtons').append('<button class="btn btn-light">' + value + '</button>')
+        $('#gifButtons').append('<button class="btn btn-light m-1">' + value + '</button>')
     })
 
 
@@ -18,7 +18,7 @@ $(document).ready(function() {
         // takes value in search box and push it to existing array and appends that value as a new button.
         let q = $('#searchBox').val().trim();
         searchResults.push(q)
-        $('#gifButtons').append('<button class="btn btn-light">' + q + '</button>')
+        $('#gifButtons').append('<button class="btn btn-light m-1">' + q + '</button>')
 
 
         
