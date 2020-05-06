@@ -9,7 +9,7 @@ body {
     font-style: normal;
 }
 
-h1, h4 {
+h1, h4, p {
     color: antiquewhite;
     font-family: 'groovyFont';
     text-align: center;
