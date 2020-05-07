@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-    let searchResults = ['Kevin Parker', 'Ross MacDonald', 'Mac DeMarco']
+    let searchResults = ['Kevin Parker', 'Ozzy', 'Mac DeMarco']
 
     let apiKey = '&api_key=J8OYNkQOJSuZ9QnbjoWVnOHzl9tGj6Wl'
 
-
-    function renderButtons() {
     
+    function renderButtons() {
+        
         $("#gifButtons").empty();
 
         // loops searchResults array and creates a button in each array
@@ -18,24 +18,29 @@ $(document).ready(function() {
             $("#gifButtons").append(a);
         }
     }
-    renderButtons()
-
-
-
-    $('.gifBtn').on('click', function() {
-
-        console.log(this)
+    
+    
+    // added .gifBtn into document argument
+    $(document).on('click','.gifBtn', function() {
+        
 
         $("#gifDisplay").empty();
+        
+        // TA Michael helped with this issue...
+        $('.gifBtn').removeClass('active');
+        $(this).addClass('active');
+        // ==============================
 
         let musician = $(this).attr('data-name')
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + musician + apiKey + "&limit=10";
+        
+        
         $.ajax({
             url: queryURL,
             method: "GET"
         })
     
-    
+        // take the received response and display 10 gifs onto the webpage
         .then(function(response) {
 
             let results = response.data;
@@ -56,20 +61,21 @@ $(document).ready(function() {
             }
         })
     })
-    
 
 
+    // event listener for Submit button
     $('#submitButton').on('click', function(event) {
         event.preventDefault();
 
         // takes value in search box and push it to existing array and appends that value as a new button.
-        let q = $('#searchBox').val().trim();
+        let q = $('input').val().trim();
         searchResults.push(q)
 
         renderButtons()
 
     })
 
+    renderButtons()
 
 
 })
